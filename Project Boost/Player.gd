@@ -5,7 +5,7 @@ var deceleration: float = 0.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("ui_accept"):
+	if Input.is_action_pressed("boost"):
 		apply_central_force(basis.y * delta * 1000.0)
 	
 	#elif deceleration > 0:
@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	handle_rotation(delta)
 		
 func handle_rotation(delta: float) -> void:
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("rotate-left"):
 		apply_torque(Vector3(0.0, 0.0, 100.0 * delta))
-	elif Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed("rotate-right"):
 		apply_torque(Vector3(0.0, 0.0, -100.0*delta))
